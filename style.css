@@ -1,0 +1,298 @@
+@font-face {
+  font-family: "Braciola MS";
+  src: url(./assets/fonts/braciola-ms/Braciola\ MS\ ExB.ttf);
+}
+@font-face {
+  font-family: "Bahnschrift";
+  src: url("./assets/fonts/Bahnschrift-Font-Family/BAHNSCHRIFT.TTF");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Open Sans", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+    sans-serif;
+  font-size: 18px;
+  min-height: 300dvh;
+}
+
+.logo {
+  font-family: "Braciola MS";
+  font-weight: 700;
+  font-size: 24px;
+  text-decoration: none;
+  color: #121212;
+
+  .mobile {
+    display: none;
+  }
+}
+
+@media (max-width: 500px) {
+    .logo {
+        .full {
+            display: none;
+        }
+
+        .mobile {
+            display: block;
+        }
+    }
+}
+
+header {
+  height: 120px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin-inline: auto;
+    width: 100%;
+
+    .menu {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+      list-style: none;
+
+      li {
+        a {
+          text-decoration: none;
+          color: #121212;
+
+          i {
+            font-size: 24px;
+          }
+
+          &:has(span) {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+
+            span {
+              font-size: 18px;
+            }
+          }
+        }
+      }
+
+      .menuBtn {
+        position: relative;
+        
+        &:hover {
+            ul {
+                opacity: 1;
+                pointer-events: auto;
+            }
+        }
+        
+        ul {
+            position: absolute;
+            top: 110%;
+            right: 0;
+            width: 300px;
+            display: grid;
+            gap: 15px;
+            padding: 20px;
+            list-style: none;
+            background: #121212;
+            color: #f1f1f1;
+            border-radius: 10px;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.3s;
+
+            li {
+                a {
+                    display: flex;
+                    align-items: center;
+                    justify-content: flex-start;
+                    color: inherit;
+                }
+            }
+        }
+      }
+    }
+  }
+}
+
+section#hero {
+  height: 50dvh;
+  min-height: 400px;
+  display: grid;
+  place-content: center;
+  gap: 20px;
+
+  h2 {
+    font-weight: 400;
+    font-size: 3rem;
+    font-family: "Bahnschrift";
+    text-transform: capitalize;
+    text-align: center;
+  }
+
+  .searchBar {
+    width: min(90%, 600px);
+    height: 45px;
+    margin-inline: auto;
+    border: 1px solid #b9b8b8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50px;
+    overflow: hidden;
+
+    input {
+      flex: 1 0;
+      height: 100%;
+      border: none;
+      outline: none;
+      padding-inline: 20px;
+      font-size: inherit;
+    }
+
+    button {
+      width: 70px;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      background: #121212;
+      color: #f1f1f1;
+      outline: none;
+      border: none;
+      cursor: pointer;
+    }
+  }
+}
+
+section#categories {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-block: 50px;
+  padding-inline: 10px;
+
+  .category {
+    overflow: hidden;
+
+    .imageContainer {
+      width: 100%;
+      aspect-ratio: 1;
+      border-radius: 10px;
+      overflow: hidden;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+    }
+
+    h3 {
+      text-align: center;
+      font-family: "Bahnschrift";
+      font-weight: 400;
+      padding-block: 20px;
+    }
+  }
+}
+
+section#featured {
+  background: url(./assets/desktop-setup.png) fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: #12121290;
+  background-blend-mode: multiply;
+  width: min(1200px, 100%);
+  height: 400px;
+  margin-block: 30px;
+  margin-inline: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  h4 {
+    font-family: "Bahnschrift";
+    text-transform: uppercase;
+    color: #f1f1f1;
+    font-size: 40px;
+    width: min(100%, 800px);
+    text-align: center;
+  }
+}
+
+section#products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 15px;
+    max-width: 1200px;
+    margin-inline: auto;
+    padding-inline: 10px;
+
+    .product {
+        width: 100%;
+        max-width: 300px;
+        text-decoration: none;
+        color: inherit;
+        margin-inline: auto;
+        padding: 10px;
+        border-radius: 10px;
+        transition: 0.3s;
+
+        &:hover {
+            box-shadow: 0 0 10px 0px #12121220;
+        }
+
+        .imageContainer {
+            width: 100%;
+            aspect-ratio: 1;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: center;
+            }
+        }
+
+        .category {
+            color: #12121270;
+        }
+
+        .productName {
+            width: 100%;
+            overflow: hidden;
+            text-wrap: nowrap;
+            text-overflow: ellipsis;
+        }
+
+        .price {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+
+            span {
+                font-size: 30px;
+                font-weight: 700;
+            }
+        }
+    }
+}
